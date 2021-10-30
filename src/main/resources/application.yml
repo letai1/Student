@@ -1,0 +1,77 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: STUDENT-SERVICE
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+
+
+#resilience4j:
+#  retry:
+#    instances:
+#      basic:
+#        maxRetryAttemps: 1
+#        waitDuration: 5s
+#      intervalFunctionRandom:
+#        enableRandomizedWait: true
+#        maxRetryAttempts: 3
+#        randomizedWaitFactor: 0.5
+#        waitDuration: 2s
+#      fallbackExample:
+#        maxRetryAttempts: 3
+#        waitDuration: 2s
+#      loggedRetryExample:
+#        maxRetryAttempts: 3
+#        waitDuration: 2s
+#  ratelimiter:
+#    instances:
+#
+#      # RateLimiter object used in RateLimitingService.basicExample()
+#      basicExample:
+#        limitForPeriod: 1
+#        limitRefreshPeriod: 1s
+#        timeoutDuration: 1s
+#      timeoutExample:
+#        limitForPeriod: 1
+#        limitRefreshPeriod: 10s
+#        timeoutDuration: 5s
+#      multipleRateLimiters_rps_limiter:
+#        limitForPeriod: 2
+#        limitRefreshPeriod: 20s
+#        timeoutDuration: 30s
+#      multipleRateLimiters_rpm_limiter:
+#        limitForPeriod: 40
+#        limitRefreshPeriod: 1m
+#        timeoutDuration: 2s
+#
+#        # RateLimiter object used in RateLimitingService.changeLimitsExample()
+#        changeLimitsExample:
+#          limitForPeriod: 1
+#          limitRefreshPeriod: 1s
+#          timeoutDuration: 1s
+#
+#        # RateLimiter object used in RateLimitingService.retryAndRateLimitExample()
+#        retryAndRateLimitExample:
+#          limitForPeriod: 1
+#          limitRefreshPeriod: 1s
+#          timeoutDuration: 250ms
+#
+#        # RateLimiter object used in RateLimitingService.rateLimiterEventsExample()
+#        rateLimiterEventsExample:
+#          limitForPeriod: 1
+#          limitRefreshPeriod: 1s
+#          timeoutDuration: 50ms
+#
+#        # RateLimiter object used in RateLimitingService.fallbackExample()
+#        fallbackExample:
+#          limitForPeriod: 1
+#          limitRefreshPeriod: 1s
+#          timeoutDuration: 500ms

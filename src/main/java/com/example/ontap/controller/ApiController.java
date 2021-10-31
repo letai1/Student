@@ -9,6 +9,7 @@ import com.example.ontap.service.TokenInterface;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,6 +27,7 @@ public class ApiController {
     TokenInterface tokenInterface;
 
     @RateLimiter(name="basicexample")
+    @Cacheable(value="studentGetList")
     @GetMapping("/student")
     public List<Student> getList(){
         return serviceInterface.getList();
@@ -54,6 +56,7 @@ public class ApiController {
         return serviceInterface.getStudentAndDepartment(id);
     }
 
+    @Cacheable(value="studentPut")
     @RateLimiter(name="advancedexample")
     @PutMapping("/student")
     public String updateStudent(@RequestBody Student student){
@@ -63,6 +66,7 @@ public class ApiController {
         return "Update Not SuccessFul!";
     }
 
+    @Cacheable(value="studentDelete")
     @Retry(name="multiplyretrywait")
     @RateLimiter(name="multiplylimittimeout")
     @DeleteMapping("/student/{id}")
@@ -73,6 +77,7 @@ public class ApiController {
         return "Delete Not SuccessFul!";
     }
 
+    @Cacheable(value="studentPost")
     @RateLimiter(name="multiplylimit")
     @PostMapping("/student")
     public String addStudent(@RequestBody Student student){

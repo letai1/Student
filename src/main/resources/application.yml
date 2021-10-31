@@ -100,20 +100,3 @@ resilience4j:
 #          limitRefreshPeriod: 1s
 #          timeoutDuration: 1s
 #
-#        # RateLimiter object used in RateLimitingService.retryAndRateLimitExample()
-#        retryAndRateLimitExample:
-#          limitForPeriod: 1
-#          limitRefreshPeriod: 1s
-#          timeoutDuration: 250ms
-#
-#        # RateLimiter object used in RateLimitingService.rateLimiterEventsExample()
-#        rateLimiterEventsExample:
-#          limitForPeriod: 1
-#          limitRefreshPeriod: 1s
-#          timeoutDuration: 50ms
-#
-#        # RateLimiter object used in RateLimitingService.fallbackExample()
-#        fallbackExample:
-#          limitForPeriod: 1
-#          limitRefreshPeriod: 1s
-#          timeoutDuration: 500ms

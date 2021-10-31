@@ -58,6 +58,7 @@ public class StudentService implements ServiceInterface{
 
     @Override
     public StudentDepartmentDTO getStudentAndDepartment(int id) {
+
         Student student = getStudent(id);
         int idDepartment = student.getDepartmentId();
         Department department = restTemplate.getForObject("http://localhost:9001/department/"+idDepartment,Department.class);
